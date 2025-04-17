@@ -1,3 +1,4 @@
+import 'package:app_vacunas/perfiles/creupdperfil.dart';
 import 'package:flutter/material.dart';
 
 class PerfilVacunas extends StatefulWidget {
@@ -11,71 +12,115 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
   final List<Map<String, dynamic>> perfiles = [
     {
       'nombre': 'Juan Pérez',
-      'edad': 35,
+      'fecha de nacimiento': DateTime(1990, 1, 1),
       'dni': '12345678',
       'sexo': 'Masculino',
       'departamento': 'Yoro',
       'municipio': 'Morazán',
       'direccion': 'Av. Ejemplo 123',
       'vacunas': [
-        {'nombre': 'COVID-19', 'fecha': '01/01/2022'},
-        {'nombre': 'Influenza', 'fecha': '15/11/2021'},
-        {'nombre': 'Hepatitis B', 'fecha': '10/07/2019'},
+        {
+          'nombre': 'Tétano',
+          'fecha': DateTime(2020, 2, 15),
+          'Dosis': 5,
+          'completadas': 0
+        },
+        {
+          'nombre': 'Difteria',
+          'fecha': DateTime(2019, 6, 10),
+          'Dosis': 9,
+          'completadas': 4
+        },
+        {
+          'nombre': 'Influenza',
+          'fecha': DateTime(2020, 1, 10),
+          'Dosis': 7,
+          'completadas': 6
+        },
+        {
+          'nombre': 'Hepatitis B',
+          'fecha': DateTime(2018, 6, 10),
+          'Dosis': 3,
+          'completadas': 2
+        },
+        {
+          'nombre': 'Varicela',
+          'fecha': DateTime(2018, 6, 10),
+          'Dosis': 1,
+          'completadas': 1
+        },
+        {
+          'nombre': 'Fiebre Amarilla',
+          'fecha': DateTime(2018, 6, 10),
+          'Dosis': 3,
+          'completadas': 1
+        },
       ],
     },
     {
       'nombre': 'María López',
-      'edad': 28,
+      'fecha de nacimiento': DateTime(1985, 5, 15),
       'dni': '87654321',
       'sexo': 'Femenino',
       'departamento': 'Cortes',
       'municipio': 'San Pedro Sula',
       'direccion': 'Calle Ejemplo 456',
       'vacunas': [
-        {'nombre': 'COVID-19', 'fecha': '01/02/2022'},
-        {'nombre': 'Tétano', 'fecha': '20/05/2020'},
+        {'nombre': 'Difteria', 'fecha': DateTime(2019, 6, 10)},
+        {'nombre': 'Hepatitis A', 'fecha': DateTime(2018, 6, 10)},
+        {'nombre': 'Sarampión', 'fecha': DateTime(2018, 6, 10)},
+        {'nombre': 'Rubéola', 'fecha': DateTime(2018, 6, 10)},
       ],
     },
     {
       'nombre': 'Carlos García',
-      'edad': 45,
+      'fecha de nacimiento': DateTime(2000, 8, 20),
       'dni': '13579246',
       'sexo': 'Masculino',
       'departamento': 'Lempira',
       'municipio': 'Gracias',
       'direccion': 'Av. Ejemplo 789',
       'vacunas': [
-        {'nombre': 'COVID-19', 'fecha': '01/03/2022'},
-        {'nombre': 'Sarampión', 'fecha': '15/08/2018'},
-        {'nombre': 'Rubéola', 'fecha': '10/12/2017'},
+        {'nombre': 'Sarampión', 'fecha': DateTime(2004, 6, 10)},
+        {'nombre': 'Rubéola', 'fecha': DateTime(2004, 6, 10)},
+        {'nombre': 'Hepatitis A', 'fecha': DateTime(2004, 6, 10)},
+        {'nombre': 'Difteria', 'fecha': DateTime(2004, 6, 10)},
+        {'nombre': 'Tétano', 'fecha': DateTime(2004, 6, 10)},
+        {'nombre': 'Hepatitis B', 'fecha': DateTime(2004, 6, 10)},
       ],
     },
     {
       'nombre': 'Ana Torres',
-      'edad': 30,
+      'fecha de nacimiento': DateTime(2015, 3, 10),
       'dni': '24681357',
       'sexo': 'Femenino',
       'departamento': 'Colón',
       'municipio': 'Tocoa',
       'direccion': 'Calle Ejemplo 321',
       'vacunas': [
-        {'nombre': 'COVID-19', 'fecha': '01/04/2022'},
-        {'nombre': 'Varicela', 'fecha': '20/09/2019'},
-        {'nombre': 'Fiebre Amarilla', 'fecha': '10/11/2018'},
+        {'nombre': 'Neumococo', 'fecha': DateTime(2021, 6, 15)},
+        {'nombre': 'Meningococo', 'fecha': DateTime(2020, 1, 10)},
+        {'nombre': 'Hepatitis C', 'fecha': DateTime(2020, 2, 15)},
+        {'nombre': 'Hepatitis B', 'fecha': DateTime(2019, 6, 10)},
+        {'nombre': 'Varicela', 'fecha': DateTime(2018, 6, 10)},
+        {'nombre': 'Fiebre Amarilla', 'fecha': DateTime(2018, 6, 10)},
       ],
     },
     {
       'nombre': 'Luis Martínez',
-      'edad': 50,
+      'fecha de nacimiento': DateTime(1975, 12, 25),
       'dni': '98765432',
       'sexo': 'Masculino',
       'departamento': 'Francisco Morazán',
       'municipio': 'Tegucigalpa',
       'direccion': 'Av. Ejemplo 654',
       'vacunas': [
-        {'nombre': 'COVID-19', 'fecha': '01/05/2022'},
-        {'nombre': 'Tétano', 'fecha': '15/02/2020'},
-        {'nombre': 'Hepatitis A', 'fecha': '10/06/2019'},
+        {'nombre': 'Neumococo', 'fecha': DateTime(2020, 6, 15)},
+        {'nombre': 'Difteria', 'fecha': DateTime(2019, 6, 10)},
+        {'nombre': 'Tétano', 'fecha': DateTime(2020, 2, 15)},
+        {'nombre': 'Sarampión', 'fecha': DateTime(2018, 6, 10)},
+        {'nombre': 'Rubéola', 'fecha': DateTime(2018, 6, 10)},
+        {'nombre': 'Fiebre Amarilla', 'fecha': DateTime(2018, 6, 10)},
       ],
     },
   ];
@@ -116,7 +161,8 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Nombre: ${selectedPerfil!['nombre']}'),
-                      Text('Edad: ${selectedPerfil!['edad']} años'),
+                      Text(
+                          'Edad: ${(DateTime.now().year) - (selectedPerfil!['fecha de nacimiento'].year)} años'),
                       Text('DNI: ${selectedPerfil!['dni']}'),
                       Text('Sexo: ${selectedPerfil!['sexo']}'),
                       Text('Departamento: ${selectedPerfil!['departamento']}'),
@@ -212,7 +258,12 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
             ),
             ElevatedButton.icon(
               onPressed: () {
-                // Acción para crear perfil de adulto
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CreUpdPerfil(),
+                  ),
+                );
               },
               icon: const Icon(Icons.person),
               label: const Text('Crear Perfil de Adulto'),
@@ -220,7 +271,12 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
             //const SizedBox(height: 8.0),
             ElevatedButton.icon(
               onPressed: () {
-                // Acción para crear perfil de niño
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CreUpdPerfil(),
+                  ),
+                );
               },
               icon: const Icon(Icons.child_care),
               label: const Text('Crear Perfil de Niño'),
