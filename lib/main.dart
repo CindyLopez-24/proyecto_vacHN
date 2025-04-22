@@ -1,6 +1,5 @@
+import 'package:app_vacunas/login.dart';
 import 'package:flutter/material.dart';
-import 'login_page.dart';
-import 'register_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,8 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(), 
-      throw UnimplementedError();
+      home: LoginPage(),
     );
   }
 }
