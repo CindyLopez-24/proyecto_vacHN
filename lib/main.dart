@@ -9,6 +9,7 @@ import 'package:app_vacunas/perfiles/perfilcontroller.dart';
 import 'package:get/get.dart';
 import 'package:app_vacunas/perfiles/perfiles.dart';
 import 'package:go_router/go_router.dart';
+import 'package:app_vacunas/perfiles/authcontroller.dart';
 //import 'package:app_vacunas/registro.dart';
 
 void main() async {
@@ -16,7 +17,10 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  Get.put(AuthController());
+  AuthController authController = Get.find<AuthController>();
   Get.put(PerfilController());
+  await authController.signInWithGoogle();
   PerfilController perfilController = Get.find<PerfilController>();
   perfilController.perfiles =
       await perfilController.obtenerPerfilesDesdeFirestore();
@@ -29,6 +33,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     return MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',

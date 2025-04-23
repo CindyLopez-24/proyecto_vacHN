@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:app_vacunas/perfiles/vacunas.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -6,24 +7,23 @@ class PerfilController extends GetxController {
   List<Map<String, dynamic>> perfiles = [];
   String? selectedValue;
   Map<String, dynamic>? selectedPerfil;
+  String? uid = FirebaseAuth.instance.currentUser?.uid;
 
   Future<void> guardarPerfilesEnFirebase(
       List<Map<String, dynamic>> perfiles) async {
     final FirebaseFirestore firestore = FirebaseFirestore.instance;
-    final CollectionReference perfilesRef = firestore.collection('perfiles');
+    final CollectionReference perfilesRef = firestore.collection(uid!);
 
     for (final perfil in perfiles) {
       // Si querés usar el DNI como ID del documento, podés hacer:
-      final String id =
-          perfil['dni'] ?? firestore.collection('perfiles').doc().id;
+      final String id = perfil['dni'] ?? firestore.collection(uid!).doc().id;
 
       await perfilesRef.doc(id).set(perfil);
     }
   }
 
   Future<List<Map<String, dynamic>>> obtenerPerfilesDesdeFirestore() async {
-    final snapshot =
-        await FirebaseFirestore.instance.collection('perfiles').get();
+    final snapshot = await FirebaseFirestore.instance.collection(uid!).get();
 
     return snapshot.docs.map((doc) {
       final data = doc.data();

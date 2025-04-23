@@ -112,6 +112,12 @@ class _GraficoEsquemasVac extends State<GraficoEsquemasVac> {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          context.pushReplacement('/perfilvacunas');
+        },
+        child: const Icon(Icons.arrow_back),
+      ),
     );
   }
 }

@@ -1,4 +1,4 @@
-package com.example.app_vacunas
+package com.prueba.app_vacunas
 
 import io.flutter.embedding.android.FlutterActivity
 
