@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app_vacunas/registro.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +11,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    throw UnimplementedError();
+    return MaterialApp(
+      title: 'Vacunate HN',
+      theme: ThemeData(
+        primarySwatch: Colors.lightBlue,
+      ),
+
+      home: RegistroPage(),
+    );
   }
   
   }
