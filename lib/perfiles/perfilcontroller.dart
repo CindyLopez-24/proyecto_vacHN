@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:app_vacunas/perfiles/vacunas.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -7,7 +6,7 @@ class PerfilController extends GetxController {
   List<Map<String, dynamic>> perfiles = [];
   String? selectedValue;
   Map<String, dynamic>? selectedPerfil;
-  String? uid = FirebaseAuth.instance.currentUser?.uid;
+  String? uid;
 
   Future<void> guardarPerfilesEnFirebase(
       List<Map<String, dynamic>> perfiles) async {

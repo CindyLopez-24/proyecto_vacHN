@@ -3,6 +3,7 @@ import 'package:app_vacunas/firebase_options.dart';
 import 'package:app_vacunas/perfiles/addvacuna.dart';
 import 'package:app_vacunas/perfiles/creupdperfil.dart';
 import 'package:app_vacunas/perfiles/graficoesquemavacunacion.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:app_vacunas/perfiles/perfilcontroller.dart';
@@ -22,6 +23,7 @@ void main() async {
   Get.put(PerfilController());
   await authController.signInWithGoogle();
   PerfilController perfilController = Get.find<PerfilController>();
+  perfilController.uid = FirebaseAuth.instance.currentUser?.uid;
   perfilController.perfiles =
       await perfilController.obtenerPerfilesDesdeFirestore();
 

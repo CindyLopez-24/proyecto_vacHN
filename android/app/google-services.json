@@ -130,6 +130,58 @@
       },
       "oauth_client": [
         {
+          "client_id": "471061185632-05t3egl05lvga2qqir7k43a3vsh28ss1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.prueba.app_vacunas",
+            "certificate_hash": "4be0b5aa4c4d3f8602ba12ce6d4ad79f94ee135d"
+          }
+        },
+        {
+          "client_id": "471061185632-enn74qo6jh58a8bu07k7bi19kqmn3cdm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcHK4-PfaCBP4oCluLkZ38miZ9oD2-F3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471061185632-enn74qo6jh58a8bu07k7bi19kqmn3cdm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "471061185632-p29ge5qke8f2i0668r24n95ag21qppg7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.proyInventarioFlutterFirebase"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471061185632:android:464513368b316a3a7a2f05",
+        "android_client_info": {
+          "package_name": "hn.unah.app_vacunas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471061185632-2c9d2a3r4ndu5dkq8f4tgsgl5o8176ab.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hn.unah.app_vacunas",
+            "certificate_hash": "4be0b5aa4c4d3f8602ba12ce6d4ad79f94ee135d"
+          }
+        },
+        {
           "client_id": "471061185632-enn74qo6jh58a8bu07k7bi19kqmn3cdm.apps.googleusercontent.com",
           "client_type": 3
         }
