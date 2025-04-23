@@ -1,0 +1,2 @@
+C:/Users/cjlop/Documents/LENGUAJES 2025/proyecto/app_vacunas/android/app/.cxx/Debug/434t334u/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/cjlop/Documents/LENGUAJES 2025/proyecto/app_vacunas/android/app/.cxx/Debug/434t334u/arm64-v8a/CMakeFiles/rebuild_cache.dir
