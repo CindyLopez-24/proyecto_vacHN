@@ -1,5 +1,5 @@
+import 'package:app_vacunas/perfiles/authcontroller.dart';
 import 'package:app_vacunas/perfiles/perfilcontroller.dart';
-import 'package:app_vacunas/perfiles/wigets/menudrawer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
@@ -14,6 +14,7 @@ class PerfilVacunas extends StatefulWidget {
 
 class _PerfilVacunasState extends State<PerfilVacunas> {
   final PerfilController perfilController = Get.find<PerfilController>();
+  final AuthController authController = Get.find<AuthController>();
 
   Map<String, dynamic>? extra;
 
@@ -77,7 +78,145 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: MenuDrawer(),
+      drawer: Drawer(
+        backgroundColor: const Color.fromARGB(255, 142, 183, 253),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              const DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child: Text(
+                  'VACUNATE HN',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),
+              ),
+              DropdownButton<String>(
+                value: perfilController.selectedPerfil!['dni'],
+                hint: const SizedBox(
+                  width: 400,
+                  child: Card(
+                    elevation: 0.0,
+                    color: Color.fromARGB(255, 83, 178, 247),
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        'Seleccionar perfil',
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                ),
+                isExpanded: true,
+                items: perfilController.perfiles.map((value) {
+                  return DropdownMenuItem<String>(
+                    value: value['dni'],
+                    child: SizedBox(
+                      width: 400,
+                      child: Card(
+                        elevation: 0.0,
+                        color: const Color.fromARGB(255, 83, 178, 247),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              Icon(
+                                value["tipo"] == "mayor de 5 años"
+                                    ? Icons.person
+                                    : Icons.child_care,
+                              ),
+                              const SizedBox(width: 8.0),
+                              Text(
+                                value['nombre'],
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  setState(() {
+                    perfilController.selectedPerfil =
+                        perfilController.perfiles.firstWhere(
+                      (perfil) => perfil['dni'] == value,
+                    );
+                    perfilController.selectedValue =
+                        perfilController.selectedPerfil!['dni'];
+                  });
+                },
+              ),
+              const SizedBox(height: 8.0),
+              const Text(
+                'Administrar Perfiles',
+              ),
+              const SizedBox(height: 8.0),
+              SizedBox(
+                width: 200,
+                child: ElevatedButton.icon(
+                  style: ButtonStyle(
+                      elevation: WidgetStateProperty.all(0.0),
+                      backgroundColor: WidgetStateProperty.all(
+                          const Color.fromARGB(255, 83, 178, 247))),
+                  onPressed: () {
+                    context.go('/perfilvacunas/creupdperfil',
+                        extra: {"editar": false, "tipo": "Adulto"});
+                  },
+                  icon: const Icon(Icons.person),
+                  label: const Text(
+                    'Crear Perfil de Mayor de 5 años',
+                    style: TextStyle(color: Colors.black87),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 200,
+                child: ElevatedButton.icon(
+                  style: ButtonStyle(
+                      elevation: WidgetStateProperty.all(0.0),
+                      backgroundColor: WidgetStateProperty.all(
+                          const Color.fromARGB(255, 83, 178, 247))),
+                  onPressed: () {
+                    context.go('/perfilvacunas/creupdperfil',
+                        extra: {"editar": false, "tipo": "Niño"});
+                  },
+                  icon: const Icon(Icons.child_care),
+                  label: const Text(
+                    'Crear Perfil de Menor de 5 años',
+                    style: TextStyle(color: Colors.black87),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 200,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 1,
+                  color: Colors.blue,
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.logout),
+                title: const Text('Cerrar Sesión'),
+                onTap: () {
+                  authController.signOut();
+                  context.go('/LogOut');
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
       backgroundColor: Colors.blue[50],
       appBar: AppBar(
         title: const Text('PERFIL DE VACUNAS'),
@@ -93,61 +232,7 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
               'Perfil del Usuario',
             ),
 /////////////////////////MOSTRAR/SELECCIONAR PERFILES////////////////////////////
-            DropdownButton<String>(
-              value: perfilController.selectedPerfil!['dni'],
-              hint: const SizedBox(
-                width: 400,
-                child: Card(
-                  color: Color.fromARGB(255, 83, 178, 247),
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      'Seleccionar perfil',
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ),
-              isExpanded: true,
-              items: perfilController.perfiles.map((value) {
-                return DropdownMenuItem<String>(
-                  value: value['dni'],
-                  child: SizedBox(
-                    width: 400,
-                    child: Card(
-                      color: const Color.fromARGB(255, 83, 178, 247),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Icon(
-                              value["tipo"] == "mayor de 5 años"
-                                  ? Icons.person
-                                  : Icons.child_care,
-                            ),
-                            const SizedBox(width: 8.0),
-                            Text(
-                              value['nombre'],
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                );
-              }).toList(),
-              onChanged: (value) {
-                setState(() {
-                  perfilController.selectedPerfil =
-                      perfilController.perfiles.firstWhere(
-                    (perfil) => perfil['dni'] == value,
-                  );
-                  perfilController.selectedValue =
-                      perfilController.selectedPerfil!['dni'];
-                });
-              },
-            ),
+
             InkWell(
               onTap: () {},
 ///////////////////////////////////MOSTRAR PERFIL////////////////////////////////////
@@ -319,45 +404,6 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
               ),
             ),
             const SizedBox(height: 4.0),
-            const Text(
-              'Administrar Perfiles',
-            ),
-            const SizedBox(height: 4.0),
-//////////////////////////////AÑADIR PERFIL////////////////////////////////////
-            SizedBox(
-              width: 400,
-              child: ElevatedButton.icon(
-                style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(
-                        const Color.fromARGB(255, 83, 178, 247))),
-                onPressed: () {
-                  context.go('/perfilvacunas/creupdperfil',
-                      extra: {"editar": false, "tipo": "Adulto"});
-                },
-                icon: const Icon(Icons.person),
-                label: const Text(
-                  'Crear Perfil de Mayor de 5 años',
-                  style: TextStyle(color: Colors.black87),
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 400,
-              child: ElevatedButton.icon(
-                style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(
-                        const Color.fromARGB(255, 83, 178, 247))),
-                onPressed: () {
-                  context.go('/perfilvacunas/creupdperfil',
-                      extra: {"editar": false, "tipo": "Niño"});
-                },
-                icon: const Icon(Icons.child_care),
-                label: const Text(
-                  'Crear Perfil de Menor de 5 años',
-                  style: TextStyle(color: Colors.black87),
-                ),
-              ),
-            ),
           ],
         ),
       ),
