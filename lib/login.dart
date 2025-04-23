@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:app_vacunas/registro.dart';
 class LoginPage extends StatefulWidget {
+  const LoginPage ({super.key});
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
