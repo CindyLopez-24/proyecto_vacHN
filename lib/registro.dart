@@ -2,6 +2,8 @@
 //registrar nuevo usuario
 import 'package:flutter/material.dart';
 class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
+
   @override
   _RegisterPageState createState() => _RegisterPageState();
 }
@@ -11,7 +13,7 @@ class _RegisterPageState extends State<RegisterPage> {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          margin: EdgeInsets.all(24),
+          margin: const EdgeInsets.all(24),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -26,7 +28,7 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Widget _header(context) {
-    return Column(
+    return const Column(
       children: [
         Text(
           "Regístrate en VacunateHN",
@@ -50,10 +52,10 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
             filled: true,
-            prefixIcon: Icon(Icons.person),
+            prefixIcon: const Icon(Icons.person),
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         TextField(
           decoration: InputDecoration(
             hintText: "Correo electrónico",
@@ -63,10 +65,10 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
             filled: true,
-            prefixIcon: Icon(Icons.email),
+            prefixIcon: const Icon(Icons.email),
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         TextField(
           obscureText: true,
           decoration: InputDecoration(
@@ -77,19 +79,19 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
             filled: true,
-            prefixIcon: Icon(Icons.lock),
+            prefixIcon: const Icon(Icons.lock),
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         ElevatedButton(
           onPressed: () {
            
           },
           style: ElevatedButton.styleFrom(
-            shape: StadiumBorder(),
-            padding: EdgeInsets.symmetric(vertical: 16),
+            shape: const StadiumBorder(),
+            padding: const EdgeInsets.symmetric(vertical: 16),
           ),
-          child: Text("Registrarse"),
+          child: const Text("Registrarse"),
         ),
       ],
     );
@@ -99,12 +101,12 @@ class _RegisterPageState extends State<RegisterPage> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("¿Ya tienes una cuenta?"),
+        const Text("¿Ya tienes una cuenta?"),
         TextButton(
           onPressed: () {
             Navigator.pop(context); // Regresa a la pantalla de Login
           },
-          child: Text("Inicia sesión"),
+          child: const Text("Inicia sesión"),
         ),
       ],
     );

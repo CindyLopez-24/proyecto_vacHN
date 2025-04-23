@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "460406396391",
+    "project_id": "vacunasapp-96a1c",
+    "storage_bucket": "vacunasapp-96a1c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:460406396391:android:8e039c77b0656774a75942",
+        "android_client_info": {
+          "package_name": "hn.unah.app_vacunas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnyoxYDN-U16it8c7IgydWFNPkAADiYeY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -13,7 +13,7 @@ class _LoginPageState extends State<LoginPage> {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          margin: EdgeInsets.all(24),
+          margin: const EdgeInsets.all(24),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _header(context) {
-    return Column(
+    return const Column(
       children: [
         Text(
           "Bienvenido a VacunateHN",
@@ -53,10 +53,10 @@ class _LoginPageState extends State<LoginPage> {
             ),
             fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
             filled: true,
-            prefixIcon: Icon(Icons.person),
+            prefixIcon: const Icon(Icons.person),
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         TextField(
           obscureText: true,
           decoration: InputDecoration(
@@ -67,17 +67,17 @@ class _LoginPageState extends State<LoginPage> {
             ),
             fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
             filled: true,
-            prefixIcon: Icon(Icons.lock),
+            prefixIcon: const Icon(Icons.lock),
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         ElevatedButton(
           onPressed: () {},
           style: ElevatedButton.styleFrom(
-            shape: StadiumBorder(),
-            padding: EdgeInsets.symmetric(vertical: 16),
+            shape: const StadiumBorder(),
+            padding: const EdgeInsets.symmetric(vertical: 16),
           ),
-          child: Text("Login"),
+          child: const Text("Login"),
         ),
       ],
     );
@@ -86,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget _forgotPassword(context) {
     return TextButton(
       onPressed: () {},
-      child: Text("¿Olvidaste tu contraseña?"),
+      child: const Text("¿Olvidaste tu contraseña?"),
     );
   }
 
@@ -94,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("¿No tienes cuenta?"),
+        const Text("¿No tienes cuenta?"),
         TextButton(
           onPressed: () {
           Navigator.push(
@@ -102,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
           MaterialPageRoute(builder: (context) => RegisterPage()),
         );
       },
-      child: Text("Regístrate"),
+      child: const Text("Regístrate"),
         ),  
       ],
     );
