@@ -1,12 +1,14 @@
+import 'package:app_vacunas/homePage.dart';
 import 'package:app_vacunas/login.dart';
+import 'package:app_vacunas/registro.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-//import 'package:app_vacunas/registro.dart';
+
 
 void main() async {
 
-  WidgetsFlutterBinding.ensureInitialized();
+WidgetsFlutterBinding.ensureInitialized();
 await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
 );
@@ -26,7 +28,18 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.lightBlue,
       ),
 
-      home: const LoginPage(),
+      initialRoute: '/login',
+      routes: {
+          '/login': (context) => const LoginPage(),
+          '/registro': (context) => const RegisterPage(),
+          //'/inicio':
+        },
+        
+        onGenerateRoute: (settings) {
+          return MaterialPageRoute(
+            builder: (context) => const LoginPage(),
+          );
+        },
     );
   }
 }
