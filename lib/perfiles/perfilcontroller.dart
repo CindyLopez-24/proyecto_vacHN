@@ -8,13 +8,19 @@ class PerfilController extends GetxController {
   Map<String, dynamic>? selectedPerfil;
   String? uid;
 
+  Future<void> eliminarPerfilInicial(String dni) async {
+    final FirebaseFirestore firestore = FirebaseFirestore.instance;
+    final CollectionReference perfilesRef = firestore.collection(uid!);
+
+    await perfilesRef.doc('00000000').delete();
+  }
+
   Future<void> guardarPerfilesEnFirebase(
       List<Map<String, dynamic>> perfiles) async {
     final FirebaseFirestore firestore = FirebaseFirestore.instance;
     final CollectionReference perfilesRef = firestore.collection(uid!);
 
     for (final perfil in perfiles) {
-      // Si querés usar el DNI como ID del documento, podés hacer:
       final String id = perfil['dni'] ?? firestore.collection(uid!).doc().id;
 
       await perfilesRef.doc(id).set(perfil);
@@ -37,7 +43,6 @@ class PerfilController extends GetxController {
         'municipio': data['municipio'] ?? '',
         'direccion': data['direccion'] ?? '',
         'vacunas': (data['vacunas'] as List<dynamic>).map((vacunaData) {
-          // Convertimos cada vacuna en una instancia de Vacuna y luego usamos .toMap()
           return Vacuna(
             nombre: vacunaData['nombre'],
             grupo: (vacunaData['grupo'] as List<dynamic>).map((grupoItem) {

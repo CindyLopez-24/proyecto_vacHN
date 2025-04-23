@@ -158,7 +158,7 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
                       Text(
                           'Nombre: ${perfilController.selectedPerfil!['nombre']}'),
                       Text(
-                          'Edad: ${(DateTime.now().year) - DateFormat('dd-MM-yyyy').parse(perfilController.selectedPerfil!['fecha de nacimiento']).year} años'),
+                          'Edad: ${(DateTime.now().year) - DateFormat('dd-MM-yyyy').parse(perfilController.selectedPerfil!['fecha de nacimiento']).year - 1} años'),
                       Text('DNI: ${perfilController.selectedPerfil!['dni']}'),
                       Text('Sexo: ${perfilController.selectedPerfil!['sexo']}'),
                       Text(

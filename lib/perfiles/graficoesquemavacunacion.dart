@@ -53,7 +53,7 @@ class _GraficoEsquemasVac extends State<GraficoEsquemasVac> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: SizedBox(
-            width: extra_!['vacunas'].length * 130.toDouble(),
+            width: extra_!['vacunas'].length * 170.toDouble(),
             child: BarChart(
               BarChartData(
                 barGroups: barras,
@@ -85,7 +85,7 @@ class _GraficoEsquemasVac extends State<GraficoEsquemasVac> {
                           return Text(
                             extra_!['vacunas'][index]['nombre'],
                             style: const TextStyle(
-                              fontSize: 14,
+                              fontSize: 12,
                               fontWeight: FontWeight.bold,
                             ),
                           );

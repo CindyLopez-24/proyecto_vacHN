@@ -67,7 +67,7 @@ List<Vacuna> vacunasMayoresde5 = [
     ],
   ),
   Vacuna(
-    nombre: "Virus del Papiloma Humano",
+    nombre: "Papiloma Humano",
     grupo: [
       {
         "Niña de 11-15 años sanas": {
@@ -88,7 +88,7 @@ List<Vacuna> vacunasMayoresde5 = [
     ],
   ),
   Vacuna(
-    nombre: "Hepatitis A para adultos",
+    nombre: "Hepatitis A adultos",
     grupo: [
       {
         "En general": {
@@ -135,7 +135,7 @@ List<Vacuna> vacunasMayoresde5 = [
     ],
   ),
   Vacuna(
-    nombre: "Vacuna Fiebre Amarilla",
+    nombre: "Fiebre Amarilla",
     grupo: [
       {
         "Población desde 1 año de edad hasta 59 años": {
@@ -148,7 +148,7 @@ List<Vacuna> vacunasMayoresde5 = [
     ],
   ),
   Vacuna(
-    nombre: "Vacuna Influenza Estacional",
+    nombre: "Influenza Estacional",
     grupo: [
       {
         "Niños de 6 a 23 meses no vacunados": {
@@ -169,7 +169,7 @@ List<Vacuna> vacunasMayoresde5 = [
     ],
   ),
   Vacuna(
-    nombre: "SRP cepa Jeryl Lynn",
+    nombre: "SRP Jeryl Lynn",
     grupo: [
       {
         "Grupos de riesgo mayores de 5 años de edad": {
@@ -237,7 +237,7 @@ List<Vacuna> vacunasMenoresde5 = [
     ],
   ),
   Vacuna(
-    nombre: "Oral de Poliovirus Bivalente",
+    nombre: "Oral Poliovirus Bivalente",
     grupo: [
       {
         "Menor de 5 años": {
