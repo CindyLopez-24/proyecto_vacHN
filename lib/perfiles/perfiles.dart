@@ -63,12 +63,21 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
                 decoration: BoxDecoration(
                   color: Colors.blue,
                 ),
-                child: Text(
-                  'VACUNATE HN',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                  ),
+                child: Column(
+                  children: [
+                    Image(
+                      image: AssetImage('lib/assets/icon/chatgpt_image.png'),
+                      height: 100,
+                      width: 100,
+                    ),
+                    Text(
+                      'VACUNATE HN',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               DropdownButton<String>(
