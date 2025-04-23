@@ -46,32 +46,6 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    //extra = GoRouter.of(context).state.extra as Map<String, dynamic>?;
-    //if (extra != null && extra!["editar"]) {
-    //  perfilController.selectedPerfil = extra!['perfil'];
-    //  perfilController.selectedValue = perfilController.selectedPerfil!['dni'];
-    //
-    //  final nuevoPerfil = extra!['perfil'] as Map<String, dynamic>;
-    //
-    //  final index = perfilController.perfiles!
-    //      .indexWhere((p) => p['dni'] == nuevoPerfil['dni']);
-    //  if (index != -1) {
-    //    perfilController.perfiles![index] = nuevoPerfil;
-    //  }
-    //  //print(perfilController.perfiles![index]['vacunas']);
-    //  //if (extra!['nuevavacuna'] != null) {
-    //  //  perfilController.perfiles![index]['vacunas']
-    //  //      .add(extra!['nuevavacuna'].toMap());
-    //  //  //perfilController.perfiles[index]['vacunas'][0] = extra!['nuevavacuna'];
-    //  //}
-    //}
-    //if (extra != null && extra!["editar"] == false) {
-    //  perfilController.perfiles!.add(extra!['perfil'] as Map<String, dynamic>);
-    //  perfilController.selectedPerfil =
-    //      extra!['perfil'] as Map<String, dynamic>;
-    //  perfilController.selectedValue = perfilController.selectedPerfil!['dni'];
-    //}
-    //guardarPerfilesEnFirebase(perfilController.perfiles!);
     setState(() {});
   }
 
