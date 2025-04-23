@@ -1,6 +1,9 @@
+import 'package:app_vacunas/perfiles/perfilcontroller.dart';
 import 'package:app_vacunas/perfiles/vacunas.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 
 class AddVacuna extends StatefulWidget {
   const AddVacuna({super.key});
@@ -13,6 +16,7 @@ class _AddVacunaState extends State<AddVacuna> {
   Map<String, dynamic>? extra_;
   List<Vacuna>? vacunas;
   Map<String, dynamic>? perfil;
+  PerfilController perfilcontroller = Get.find<PerfilController>();
 
   @override
   void didChangeDependencies() {
@@ -161,12 +165,32 @@ class _AddVacunaState extends State<AddVacuna> {
                                 .grupo[indexgrupo]
                                 .keys
                                 .first]?['dosis'],
-                        "fecha": DateTime.now(),
+                        "fecha": DateFormat('dd-MM-yyyy').format(
+                          DateTime.now(),
+                        ),
                       }
                     }
                   ],
                 );
-                //perfil!['vacunas'].add(nuevaVacuna);
+                /////////////////////////////////////////7777
+                final nuevoPerfil = perfil as Map<String, dynamic>;
+
+                final index = perfilcontroller.perfiles
+                    .indexWhere((p) => p['dni'] == nuevoPerfil['dni']);
+                if (index != -1) {
+                  perfilcontroller.perfiles[index] = nuevoPerfil;
+                }
+                //print(perfilController.perfiles![index]['vacunas']);
+
+                perfilcontroller.perfiles[index]['vacunas']
+                    .add(nuevaVacuna.toMap());
+                //perfilController.perfiles[index]['vacunas'][0] = extra!['nuevavacuna'];
+
+                ////////////////////////////////////////////
+                //perfilcontroller.perfiles![0]['vacunas']
+                //    .add(nuevaVacuna.toMap());
+                perfilcontroller
+                    .guardarPerfilesEnFirebase(perfilcontroller.perfiles);
                 context.pushReplacement('/perfilvacunas', extra: {
                   "perfil": perfil,
                   "editar": extra_!["editar"],

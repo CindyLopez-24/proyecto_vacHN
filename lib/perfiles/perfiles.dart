@@ -15,43 +15,61 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
   final PerfilController perfilController = Get.find<PerfilController>();
 
   Map<String, dynamic>? extra;
-  String? selectedValue;
-  Map<String, dynamic>? selectedPerfil;
 
   @override
   void initState() {
     super.initState();
-    extra = GoRouter.of(context).state.extra as Map<String, dynamic>?;
-    selectedPerfil = perfilController.perfiles[0];
-    selectedValue = selectedPerfil!['dni'];
+    //extra = GoRouter.of(context).state.extra as Map<String, dynamic>?;
+    if (perfilController.perfiles.isEmpty) {
+      final perfil = {
+        'tipo': 'mayor de 5 años',
+        'nombre': 'nombre',
+        'fecha de nacimiento': '00-00-0000',
+        'dni': '00000000',
+        'sexo': 'Masculino',
+        'departamento': 'Ocotepeque',
+        'municipio': 'Concepción',
+        'direccion': 'direccion',
+        'vacunas': [],
+      };
+      perfilController.perfiles.add(perfil as Map<String, dynamic>);
+    }
+    if (perfilController.selectedPerfil == null &&
+        perfilController.selectedValue == null) {
+      perfilController.selectedPerfil = perfilController.perfiles[0];
+      perfilController.selectedValue = perfilController.selectedPerfil!['dni'];
+    }
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    extra = GoRouter.of(context).state.extra as Map<String, dynamic>?;
-    if (extra != null && extra!["editar"]) {
-      selectedPerfil = extra!['perfil'];
-      selectedValue = selectedPerfil!['dni'];
-
-      final nuevoPerfil = extra!['perfil'] as Map<String, dynamic>;
-
-      final index = perfilController.perfiles
-          .indexWhere((p) => p['dni'] == nuevoPerfil['dni']);
-      if (index != -1) {
-        perfilController.perfiles[index] = nuevoPerfil;
-      }
-      if (extra!['nuevavacuna'] != null) {
-        perfilController.perfiles[index]['vacunas']
-            .add(extra!['nuevavacuna'].toMap());
-        //perfilController.perfiles[index]['vacunas'][0] = extra!['nuevavacuna'];
-      }
-    }
-    if (extra != null && extra!["editar"] == false) {
-      perfilController.perfiles.add(extra!['perfil'] as Map<String, dynamic>);
-      selectedPerfil = extra!['perfil'] as Map<String, dynamic>;
-      selectedValue = selectedPerfil!['dni'];
-    }
+    //extra = GoRouter.of(context).state.extra as Map<String, dynamic>?;
+    //if (extra != null && extra!["editar"]) {
+    //  perfilController.selectedPerfil = extra!['perfil'];
+    //  perfilController.selectedValue = perfilController.selectedPerfil!['dni'];
+    //
+    //  final nuevoPerfil = extra!['perfil'] as Map<String, dynamic>;
+    //
+    //  final index = perfilController.perfiles!
+    //      .indexWhere((p) => p['dni'] == nuevoPerfil['dni']);
+    //  if (index != -1) {
+    //    perfilController.perfiles![index] = nuevoPerfil;
+    //  }
+    //  //print(perfilController.perfiles![index]['vacunas']);
+    //  //if (extra!['nuevavacuna'] != null) {
+    //  //  perfilController.perfiles![index]['vacunas']
+    //  //      .add(extra!['nuevavacuna'].toMap());
+    //  //  //perfilController.perfiles[index]['vacunas'][0] = extra!['nuevavacuna'];
+    //  //}
+    //}
+    //if (extra != null && extra!["editar"] == false) {
+    //  perfilController.perfiles!.add(extra!['perfil'] as Map<String, dynamic>);
+    //  perfilController.selectedPerfil =
+    //      extra!['perfil'] as Map<String, dynamic>;
+    //  perfilController.selectedValue = perfilController.selectedPerfil!['dni'];
+    //}
+    //guardarPerfilesEnFirebase(perfilController.perfiles!);
     setState(() {});
   }
 
@@ -74,7 +92,7 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
             ),
 /////////////////////////MOSTRAR/SELECCIONAR PERFILES////////////////////////////
             DropdownButton<String>(
-              value: selectedPerfil!['dni'],
+              value: perfilController.selectedPerfil!['dni'],
               hint: const SizedBox(
                 width: 400,
                 child: Card(
@@ -119,10 +137,12 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
               }).toList(),
               onChanged: (value) {
                 setState(() {
-                  selectedPerfil = perfilController.perfiles.firstWhere(
+                  perfilController.selectedPerfil =
+                      perfilController.perfiles.firstWhere(
                     (perfil) => perfil['dni'] == value,
                   );
-                  selectedValue = selectedPerfil!['dni'];
+                  perfilController.selectedValue =
+                      perfilController.selectedPerfil!['dni'];
                 });
               },
             ),
@@ -135,22 +155,28 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Nombre: ${selectedPerfil!['nombre']}'),
                       Text(
-                          'Edad: ${(DateTime.now().year) - (selectedPerfil!['fecha de nacimiento'].year)} años'),
-                      Text('DNI: ${selectedPerfil!['dni']}'),
-                      Text('Sexo: ${selectedPerfil!['sexo']}'),
-                      Text('Departamento: ${selectedPerfil!['departamento']}'),
-                      Text('Municipio: ${selectedPerfil!['municipio']}'),
-                      Text('Dirección: ${selectedPerfil!['direccion']}'),
+                          'Nombre: ${perfilController.selectedPerfil!['nombre']}'),
+                      Text(
+                          'Edad: ${(DateTime.now().year) - DateFormat('dd-MM-yyyy').parse(perfilController.selectedPerfil!['fecha de nacimiento']).year} años'),
+                      Text('DNI: ${perfilController.selectedPerfil!['dni']}'),
+                      Text('Sexo: ${perfilController.selectedPerfil!['sexo']}'),
+                      Text(
+                          'Departamento: ${perfilController.selectedPerfil!['departamento']}'),
+                      Text(
+                          'Municipio: ${perfilController.selectedPerfil!['municipio']}'),
+                      Text(
+                          'Dirección: ${perfilController.selectedPerfil!['direccion']}'),
                     ],
                   ),
 /////////////////////////////////////EDITAR PERFIL///////////////////////////////////////
                   trailing: IconButton(
                     icon: const Icon(Icons.edit),
                     onPressed: () {
-                      context.go('/perfilvacunas/creupdperfil',
-                          extra: {"perfil": selectedPerfil!, "editar": true});
+                      context.go('/perfilvacunas/creupdperfil', extra: {
+                        "perfil": perfilController.selectedPerfil!,
+                        "editar": true
+                      });
                     },
                   ),
                 ),
@@ -164,9 +190,10 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
 //////////////////////////////////MOSTRAR VACUNAS////////////////////////////////////
             Expanded(
               child: ListView.builder(
-                itemCount: selectedPerfil!['vacunas'].length,
+                itemCount: perfilController.selectedPerfil!['vacunas'].length,
                 itemBuilder: (context, index) {
-                  final vacuna = selectedPerfil!['vacunas'][index];
+                  final vacuna =
+                      perfilController.selectedPerfil!['vacunas'][index];
                   return SizedBox(
                       height: 70,
                       child: Card(
@@ -176,7 +203,7 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
                             vacuna['nombre'],
                           ),
                           subtitle: Text(
-                              'Fecha: ${DateFormat('dd-MM-yyyy').format(vacuna['grupo'][0].values.first['fecha'])}'),
+                              'Fecha: ${vacuna['grupo'][0].values.first['fecha']}'),
                           onTap: () {},
                           trailing: IconButton(
                             icon: const Icon(Icons.add),
@@ -205,20 +232,32 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
                                 );
                                 return;
                               } else {
-                                selectedPerfil!['vacunas'][index]['grupo'][0]
+                                perfilController
+                                    .selectedPerfil!['vacunas'][index]['grupo']
+                                        [0]
                                     .values
                                     .first['completadas'] += 1;
-                                selectedPerfil!['vacunas'][index]['grupo'][0]
+                                perfilController
+                                    .selectedPerfil!['vacunas'][index]['grupo']
+                                        [0]
                                     .values
                                     .first['pendientes'] -= 1;
                                 perfilController.perfiles[perfilController
                                         .perfiles
                                         .indexWhere((p) =>
-                                            p['dni'] == selectedPerfil!['dni'])]
+                                            p['dni'] ==
+                                            perfilController
+                                                .selectedPerfil!['dni'])]
                                     ['vacunas'][index]['grupo'][0];
-                                selectedPerfil = perfilController.perfiles[
-                                    perfilController.perfiles.indexWhere((p) =>
-                                        p['dni'] == selectedPerfil!['dni'])];
+                                perfilController.selectedPerfil =
+                                    perfilController.perfiles[perfilController
+                                        .perfiles
+                                        .indexWhere((p) =>
+                                            p['dni'] ==
+                                            perfilController
+                                                .selectedPerfil!['dni'])];
+                                //guardarPerfilesEnFirebase(
+                                //    perfilController.perfiles!);
                                 setState(() {});
                               }
                             },
@@ -246,8 +285,10 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
                   style: TextStyle(color: Colors.black87),
                 ),
                 onPressed: () {
-                  context.go('/perfilvacunas/addvacuna',
-                      extra: {"perfil": selectedPerfil!, "editar": true});
+                  context.go('/perfilvacunas/addvacuna', extra: {
+                    "perfil": perfilController.selectedPerfil!,
+                    "editar": true
+                  });
                 },
               ),
             ),
@@ -270,7 +311,7 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
                 onPressed: () {
                   context.go(
                     '/perfilvacunas/grafico',
-                    extra: selectedPerfil,
+                    extra: perfilController.selectedPerfil,
                   );
                 },
               ),
