@@ -3,6 +3,7 @@ import 'package:app_vacunas/firebase_options.dart';
 import 'package:app_vacunas/perfiles/addvacuna.dart';
 import 'package:app_vacunas/perfiles/creupdperfil.dart';
 import 'package:app_vacunas/perfiles/graficoesquemavacunacion.dart';
+import 'package:app_vacunas/perfiles/logout.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -57,6 +58,8 @@ class MyApp extends StatelessWidget {
                     builder: (context, state) => const AddVacuna()),
               ],
             ),
+            GoRoute(
+                path: '/LogOut', builder: (context, state) => const LogOut()),
           ],
         ));
   }

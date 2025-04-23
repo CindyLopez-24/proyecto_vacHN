@@ -1,4 +1,5 @@
 import 'package:app_vacunas/perfiles/perfilcontroller.dart';
+import 'package:app_vacunas/perfiles/wigets/menudrawer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
@@ -76,6 +77,7 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MenuDrawer(),
       backgroundColor: Colors.blue[50],
       appBar: AppBar(
         title: const Text('PERFIL DE VACUNAS'),
