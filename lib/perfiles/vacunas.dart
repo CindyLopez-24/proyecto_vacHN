@@ -1,131 +1,161 @@
-List<Map<String, dynamic>> vacunasAdolescentesAdultos = [
-  {
-    "nombre": "Hepatitis B",
-    "grupo": [
+class Vacuna {
+  final String nombre;
+  final List<Map<String, Map<String, dynamic>>> grupo;
+
+  Vacuna({
+    required this.nombre,
+    required this.grupo,
+  });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'nombre': nombre,
+      'grupo': grupo,
+    };
+  }
+}
+
+List<Vacuna> vacunasMayoresde5 = [
+  Vacuna(
+    nombre: "Hepatitis B",
+    grupo: [
       {
-        "Pacientes en dialisis": {
+        "Paciente en dialisis": {
           "dosis": 4,
           "completadas": 0,
           "pendientes": 4,
+          "fecha": DateTime.now(),
         }
       },
       {
-        "Victimas de agresión sexual": {
+        "Victima de agresión sexual": {
           "dosis": 4,
           "completadas": 0,
           "pendientes": 4,
+          "fecha": DateTime.now(),
         }
       },
       {
-        "Grupos de riesgo": {
+        "Grupo de riesgo": {
           "dosis": 3,
           "completadas": 0,
           "pendientes": 3,
+          "fecha": DateTime.now(),
         }
       },
-    ]
-  },
-  {
-    "nombre": "Td",
-    "grupo": [
+    ],
+  ),
+  Vacuna(
+    nombre: "Td",
+    grupo: [
       {
         "Escolares": {
           "dosis": 1,
           "completadas": 0,
           "pendientes": 1,
+          "fecha": DateTime.now(),
         }
       },
       {
-        "Embarazadas con historial desconocido o inadecuado": {
+        "Embarazada con historial desconocido o inadecuado": {
           "dosis": 5,
           "completadas": 0,
           "pendientes": 5,
+          "fecha": DateTime.now(),
         }
       },
-    ]
-  },
-  {
-    "nombre": "Vacuna para el Virus del Papiloma Humano",
-    "grupo": [
+    ],
+  ),
+  Vacuna(
+    nombre: "Virus del Papiloma Humano",
+    grupo: [
       {
-        "Niñas de 11-15 años sanas": {
+        "Niña de 11-15 años sanas": {
           "dosis": 1,
           "completadas": 0,
           "pendientes": 1,
+          "fecha": DateTime.now(),
         }
       },
       {
-        "Niñas de 11-15 años inmunodeprimidas o infectadas por VIH": {
+        "Niña de 11-15 años inmunodeprimidas o infectadas por VIH": {
           "dosis": 3,
           "completadas": 0,
           "pendientes": 3,
+          "fecha": DateTime.now(),
         }
       },
-    ]
-  },
-  {
-    "nombre": "Hepatitis A para adultos",
-    "grupo": [
+    ],
+  ),
+  Vacuna(
+    nombre: "Hepatitis A para adultos",
+    grupo: [
       {
         "En general": {
           "dosis": 2,
           "completadas": 0,
           "pendientes": 2,
+          "fecha": DateTime.now(),
         }
       },
-    ]
-  },
-  {
-    "nombre": "Vacuna Tdap",
-    "grupo": [
+    ],
+  ),
+  Vacuna(
+    nombre: "Vacuna Tdap",
+    grupo: [
       {
-        "Embarazadas de 26-37 semanas de gestación": {
+        "Embarazada de 26-37 semanas de gestación": {
           "dosis": 1,
           "completadas": 0,
           "pendientes": 1,
+          "fecha": DateTime.now(),
         }
       },
       {
-        "Trabajadores de salud": {
+        "Trabajador de salud": {
           "dosis": 1,
           "completadas": 0,
           "pendientes": 1,
+          "fecha": DateTime.now(),
         }
       },
-    ]
-  },
-  {
-    "nombre": "Vacuna DT pediátrica",
-    "grupo": [
+    ],
+  ),
+  Vacuna(
+    nombre: "Vacuna DT pediátrica",
+    grupo: [
       {
         "En general": {
           "dosis": 5,
           "completadas": 0,
           "pendientes": 5,
+          "fecha": DateTime.now(),
         }
       },
-    ]
-  },
-  {
-    "nombre": "Vacuna Fiebre Amarilla",
-    "grupo": [
+    ],
+  ),
+  Vacuna(
+    nombre: "Vacuna Fiebre Amarilla",
+    grupo: [
       {
         "Población desde 1 año de edad hasta 59 años": {
           "dosis": 1,
           "completadas": 0,
           "pendientes": 1,
+          "fecha": DateTime.now(),
         }
       },
-    ]
-  },
-  {
-    "nombre": "Vacuna contra Influenza Estacional",
-    "grupo": [
+    ],
+  ),
+  Vacuna(
+    nombre: "Vacuna Influenza Estacional",
+    grupo: [
       {
         "Niños de 6 a 23 meses no vacunados": {
           "dosis": 2,
           "completadas": 0,
           "pendientes": 2,
+          "fecha": DateTime.now(),
         }
       },
       {
@@ -133,89 +163,168 @@ List<Map<String, dynamic>> vacunasAdolescentesAdultos = [
           "dosis": 1,
           "completadas": 0,
           "pendientes": 1,
+          "fecha": DateTime.now(),
         }
       },
-    ]
-  },
-  {
-    "nombre": "Vacuna SRP cepa Jeryl Lynn",
-    "grupo": [
+    ],
+  ),
+  Vacuna(
+    nombre: "SRP cepa Jeryl Lynn",
+    grupo: [
       {
         "Grupos de riesgo mayores de 5 años de edad": {
           "dosis": 1,
           "completadas": 0,
           "pendientes": 1,
+          "fecha": DateTime.now(),
         }
       },
-    ]
-  },
+    ],
+  ),
 ];
 
-List<Map<String, dynamic>> vacunasMenoresde5 = [
-  {
-    "nombre": "BCG",
-    "dosis": 1,
-    "completadas": 0,
-    "pendientes": 1,
-  },
-  {
-    "nombre": "Hepatitis B pediátrica",
-    "dosis": 1,
-    "completadas": 0,
-    "pendientes": 1,
-  },
-  {
-    "nombre": "DPT-HepB-Hib",
-    "dosis": 3,
-    "completadas": 0,
-    "pendientes": 3,
-  },
-  {
-    "nombre": "Vacuna de Polivirus Inactivados",
-    "dosis": 2,
-    "completadas": 0,
-    "pendientes": 2,
-  },
-  {
-    "nombre": "Vacuna Oral de Poliovirus Bivalente",
-    "dosis": 4,
-    "completadas": 0,
-    "pendientes": 4,
-  },
-  {
-    "nombre": "Neumococo conjugada 13-Valente",
-    "dosis": 3,
-    "completadas": 0,
-    "pendientes": 3,
-  },
-  {
-    "nombre": "Rotavirus",
-    "dosis": 2,
-    "completadas": 0,
-    "pendientes": 2,
-  },
-  {
-    "nombre": "SRP",
-    "dosis": 2,
-    "completadas": 0,
-    "pendientes": 2,
-  },
-  {
-    "nombre": "Vacuna Hepatitis A pediátrica",
-    "dosis": 1,
-    "completadas": 0,
-    "pendientes": 1,
-  },
-  {
-    "nombre": "Vacuna de Varicela",
-    "dosis": 1,
-    "completadas": 0,
-    "pendientes": 1,
-  },
-  {
-    "nombre": "DPT",
-    "dosis": 2,
-    "completadas": 0,
-    "pendientes": 2,
-  },
+List<Vacuna> vacunasMenoresde5 = [
+  Vacuna(
+    nombre: "BCG",
+    grupo: [
+      {
+        "Menor de 5 años": {
+          "dosis": 1,
+          "completadas": 0,
+          "pendientes": 1,
+          "fecha": DateTime.now(),
+        }
+      },
+    ],
+  ),
+  Vacuna(
+    nombre: "Hepatitis B pediátrica",
+    grupo: [
+      {
+        "Menor de 5 años": {
+          "dosis": 1,
+          "completadas": 0,
+          "pendientes": 1,
+          "fecha": DateTime.now(),
+        }
+      },
+    ],
+  ),
+  Vacuna(
+    nombre: "DPT-HepB-Hib",
+    grupo: [
+      {
+        "Menor de 5 años": {
+          "dosis": 3,
+          "completadas": 0,
+          "pendientes": 3,
+          "fecha": DateTime.now(),
+        }
+      },
+    ],
+  ),
+  Vacuna(
+    nombre: "Polivirus Inactivados",
+    grupo: [
+      {
+        "Menor de 5 años": {
+          "dosis": 2,
+          "completadas": 0,
+          "pendientes": 2,
+          "fecha": DateTime.now(),
+        }
+      },
+    ],
+  ),
+  Vacuna(
+    nombre: "Oral de Poliovirus Bivalente",
+    grupo: [
+      {
+        "Menor de 5 años": {
+          "dosis": 4,
+          "completadas": 0,
+          "pendientes": 4,
+          "fecha": DateTime.now(),
+        }
+      },
+    ],
+  ),
+  Vacuna(
+    nombre: "Neumococo conjugada 13-Valente",
+    grupo: [
+      {
+        "Menor de 5 años": {
+          "dosis": 3,
+          "completadas": 0,
+          "pendientes": 3,
+          "fecha": DateTime.now(),
+        }
+      },
+    ],
+  ),
+  Vacuna(
+    nombre: "Rotavirus",
+    grupo: [
+      {
+        "Menor de 5 años": {
+          "dosis": 2,
+          "completadas": 0,
+          "pendientes": 2,
+          "fecha": DateTime.now(),
+        }
+      },
+    ],
+  ),
+  Vacuna(
+    nombre: "SRP",
+    grupo: [
+      {
+        "Menor de 5 años": {
+          "dosis": 2,
+          "completadas": 0,
+          "pendientes": 2,
+          "fecha": DateTime.now(),
+        }
+      },
+    ],
+  ),
+  Vacuna(
+    nombre: "Hepatitis A pediátrica",
+    grupo: [
+      {
+        "Menor de 5 años": {
+          "dosis": 1,
+          "completadas": 0,
+          "pendientes": 1,
+          "fecha": DateTime.now(),
+        }
+      },
+    ],
+  ),
+  Vacuna(
+    nombre: "Vacuna de Varicela",
+    grupo: [
+      {
+        "Menor de 5 años": {
+          "dosis": 1,
+          "completadas": 0,
+          "pendientes": 1,
+          "fecha": DateTime.now(),
+        }
+      },
+    ],
+  ),
+  Vacuna(
+    nombre: "DPT",
+    grupo: [
+      {
+        "Menor de 5 años": {
+          "dosis": 2,
+          "completadas": 0,
+          "pendientes": 2,
+          "fecha": DateTime.now(),
+        }
+      },
+    ],
+  ),
 ];
