@@ -46,32 +46,6 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    //extra = GoRouter.of(context).state.extra as Map<String, dynamic>?;
-    //if (extra != null && extra!["editar"]) {
-    //  perfilController.selectedPerfil = extra!['perfil'];
-    //  perfilController.selectedValue = perfilController.selectedPerfil!['dni'];
-    //
-    //  final nuevoPerfil = extra!['perfil'] as Map<String, dynamic>;
-    //
-    //  final index = perfilController.perfiles!
-    //      .indexWhere((p) => p['dni'] == nuevoPerfil['dni']);
-    //  if (index != -1) {
-    //    perfilController.perfiles![index] = nuevoPerfil;
-    //  }
-    //  //print(perfilController.perfiles![index]['vacunas']);
-    //  //if (extra!['nuevavacuna'] != null) {
-    //  //  perfilController.perfiles![index]['vacunas']
-    //  //      .add(extra!['nuevavacuna'].toMap());
-    //  //  //perfilController.perfiles[index]['vacunas'][0] = extra!['nuevavacuna'];
-    //  //}
-    //}
-    //if (extra != null && extra!["editar"] == false) {
-    //  perfilController.perfiles!.add(extra!['perfil'] as Map<String, dynamic>);
-    //  perfilController.selectedPerfil =
-    //      extra!['perfil'] as Map<String, dynamic>;
-    //  perfilController.selectedValue = perfilController.selectedPerfil!['dni'];
-    //}
-    //guardarPerfilesEnFirebase(perfilController.perfiles!);
     setState(() {});
   }
 
@@ -89,12 +63,21 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
                 decoration: BoxDecoration(
                   color: Colors.blue,
                 ),
-                child: Text(
-                  'VACUNATE HN',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                  ),
+                child: Column(
+                  children: [
+                    Image(
+                      image: AssetImage('lib/assets/icon/chatgpt_image.png'),
+                      height: 100,
+                      width: 100,
+                    ),
+                    Text(
+                      'VACUNATE HN',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               DropdownButton<String>(
