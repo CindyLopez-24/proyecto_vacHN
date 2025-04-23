@@ -1,26 +1,211 @@
 {
   "project_info": {
-    "project_number": "460406396391",
-    "project_id": "vacunasapp-96a1c",
-    "storage_bucket": "vacunasapp-96a1c.firebasestorage.app"
+    "project_number": "471061185632",
+    "project_id": "proyecto1-caaf1",
+    "storage_bucket": "proyecto1-caaf1.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:460406396391:android:8e039c77b0656774a75942",
+        "mobilesdk_app_id": "1:471061185632:android:c2850f068c3788c17a2f05",
         "android_client_info": {
-          "package_name": "hn.unah.app_vacunas"
+          "package_name": "com.example.proy_inventario_flutter_firebase"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "471061185632-enn74qo6jh58a8bu07k7bi19kqmn3cdm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyAnyoxYDN-U16it8c7IgydWFNPkAADiYeY"
+          "current_key": "AIzaSyCcHK4-PfaCBP4oCluLkZ38miZ9oD2-F3w"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471061185632-enn74qo6jh58a8bu07k7bi19kqmn3cdm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "471061185632-p29ge5qke8f2i0668r24n95ag21qppg7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.proyInventarioFlutterFirebase"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471061185632:android:cf4cffb91c9bc4bc7a2f05",
+        "android_client_info": {
+          "package_name": "com.example.proyecto_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471061185632-enn74qo6jh58a8bu07k7bi19kqmn3cdm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcHK4-PfaCBP4oCluLkZ38miZ9oD2-F3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471061185632-enn74qo6jh58a8bu07k7bi19kqmn3cdm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "471061185632-p29ge5qke8f2i0668r24n95ag21qppg7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.proyInventarioFlutterFirebase"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471061185632:android:b81fb75df1b9884d7a2f05",
+        "android_client_info": {
+          "package_name": "com.miapp.proy_inventario_flutter_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471061185632-6bi3qqgqn75l2jmg5lnk7ul737v1b8es.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.miapp.proy_inventario_flutter_firebase",
+            "certificate_hash": "4be0b5aa4c4d3f8602ba12ce6d4ad79f94ee135d"
+          }
+        },
+        {
+          "client_id": "471061185632-enn74qo6jh58a8bu07k7bi19kqmn3cdm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcHK4-PfaCBP4oCluLkZ38miZ9oD2-F3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471061185632-enn74qo6jh58a8bu07k7bi19kqmn3cdm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "471061185632-p29ge5qke8f2i0668r24n95ag21qppg7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.proyInventarioFlutterFirebase"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471061185632:android:f8bb0a85dc0ec4cc7a2f05",
+        "android_client_info": {
+          "package_name": "com.prueba.app_vacunas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471061185632-05t3egl05lvga2qqir7k43a3vsh28ss1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.prueba.app_vacunas",
+            "certificate_hash": "4be0b5aa4c4d3f8602ba12ce6d4ad79f94ee135d"
+          }
+        },
+        {
+          "client_id": "471061185632-enn74qo6jh58a8bu07k7bi19kqmn3cdm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcHK4-PfaCBP4oCluLkZ38miZ9oD2-F3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471061185632-enn74qo6jh58a8bu07k7bi19kqmn3cdm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "471061185632-p29ge5qke8f2i0668r24n95ag21qppg7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.proyInventarioFlutterFirebase"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471061185632:android:464513368b316a3a7a2f05",
+        "android_client_info": {
+          "package_name": "hn.unah.app_vacunas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471061185632-2c9d2a3r4ndu5dkq8f4tgsgl5o8176ab.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hn.unah.app_vacunas",
+            "certificate_hash": "4be0b5aa4c4d3f8602ba12ce6d4ad79f94ee135d"
+          }
+        },
+        {
+          "client_id": "471061185632-enn74qo6jh58a8bu07k7bi19kqmn3cdm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcHK4-PfaCBP4oCluLkZ38miZ9oD2-F3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471061185632-enn74qo6jh58a8bu07k7bi19kqmn3cdm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "471061185632-p29ge5qke8f2i0668r24n95ag21qppg7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.proyInventarioFlutterFirebase"
+              }
+            }
+          ]
         }
       }
     }

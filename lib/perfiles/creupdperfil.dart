@@ -1,5 +1,7 @@
 import 'package:app_vacunas/perfiles/departamentos_ymunicipios.dart';
+import 'package:app_vacunas/perfiles/perfilcontroller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
@@ -15,6 +17,7 @@ class CreUpdPerfil extends StatefulWidget {
 class _CreUpdPerfilState extends State<CreUpdPerfil> {
   Map<String, dynamic>? perfil;
   Map<String, dynamic>? extra_;
+  PerfilController perfilcontroller = Get.find<PerfilController>();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -39,8 +42,7 @@ class _CreUpdPerfilState extends State<CreUpdPerfil> {
       if (extra_ != null && extra_!["editar"] == true) {
         perfil = extra_!['perfil'];
         nombreController.text = perfil!['nombre'];
-        fechanacimientoController.text =
-            DateFormat('dd-MM-yyyy').format(perfil!['fecha de nacimiento']);
+        fechanacimientoController.text = perfil!['fecha de nacimiento'];
         dniController.text = perfil!['dni'];
         sexoController.text = perfil!['sexo'];
         departamentoController.text = perfil!['departamento'];
@@ -165,14 +167,25 @@ class _CreUpdPerfilState extends State<CreUpdPerfil> {
                               if (extra_!["editar"]) {
                                 perfil!['nombre'] = nombreController.text;
                                 perfil!['fecha de nacimiento'] =
-                                    DateFormat('dd-MM-yyyy')
-                                        .parse(fechanacimientoController.text);
+                                    fechanacimientoController.text;
                                 perfil!['dni'] = dniController.text;
                                 perfil!['sexo'] = sexoController.text;
                                 perfil!['departamento'] =
                                     departamentoController.text;
                                 perfil!['municipio'] = municipioController.text;
                                 perfil!['direccion'] = direccionController.text;
+                                ////////////////////////////////////////////////////////
+                                final nuevoPerfil =
+                                    perfil as Map<String, dynamic>;
+
+                                final index = perfilcontroller.perfiles
+                                    .indexWhere(
+                                        (p) => p['dni'] == nuevoPerfil['dni']);
+                                if (index != -1) {
+                                  perfilcontroller.perfiles[index] =
+                                      nuevoPerfil;
+                                }
+                                ////////////////////////////////////////////////////////
                               } else {
                                 perfil = {
                                   'tipo': extra_!["tipo"] == 'Adulto'
@@ -180,8 +193,7 @@ class _CreUpdPerfilState extends State<CreUpdPerfil> {
                                       : 'menor de 5 años',
                                   'nombre': nombreController.text,
                                   'fecha de nacimiento':
-                                      DateFormat('dd-MM-yyyy').parse(
-                                          fechanacimientoController.text),
+                                      fechanacimientoController.text,
                                   'dni': dniController.text,
                                   'sexo': sexoController.text,
                                   'departamento': departamentoController.text,
@@ -189,8 +201,13 @@ class _CreUpdPerfilState extends State<CreUpdPerfil> {
                                   'direccion': direccionController.text,
                                   'vacunas': [],
                                 };
+                                ///////////////////////////////////////////////////////
+                                perfilcontroller.perfiles
+                                    .add(perfil as Map<String, dynamic>);
+                                ///////////////////////////////////////////////////////
                               }
-
+                              perfilcontroller.guardarPerfilesEnFirebase(
+                                  perfilcontroller.perfiles);
                               context.pushReplacement('/perfilvacunas', extra: {
                                 "perfil": perfil,
                                 "editar": extra_!["editar"],

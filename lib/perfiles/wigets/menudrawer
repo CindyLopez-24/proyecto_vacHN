@@ -1,0 +1,57 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
+import 'package:app_vacunas/perfiles/authcontroller.dart';
+
+class MenuDrawer extends StatelessWidget {
+  MenuDrawer({super.key});
+  final authController = Get.find<AuthController>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      backgroundColor: const Color.fromARGB(255, 142, 183, 253),
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+            child: Text(
+              'Menu',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+              ),
+            ),
+          ),
+          
+          ListTile(
+            leading: const Icon(Icons.list),
+            title: const Text('Lista'),
+            onTap: () {},
+          ),
+          SizedBox(
+            height: 300,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: 1,
+              color: Colors.blue,
+            ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.logout),
+            title: const Text('Cerrar Sesión'),
+            onTap: () {
+              authController.signOut();
+              context.go('/LogOut');
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
