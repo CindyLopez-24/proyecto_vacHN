@@ -214,11 +214,9 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
             const Text(
               'Perfil del Usuario',
             ),
-/////////////////////////MOSTRAR/SELECCIONAR PERFILES////////////////////////////
-
+///////////////////////////////////MOSTRAR PERFIL////////////////////////////////////
             InkWell(
               onTap: () {},
-///////////////////////////////////MOSTRAR PERFIL////////////////////////////////////
               child: Card(
                 color: Colors.lightBlueAccent,
                 child: ListTile(
