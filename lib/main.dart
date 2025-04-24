@@ -16,20 +16,24 @@ import 'package:app_vacunas/perfiles/authcontroller.dart';
 //import 'package:app_vacunas/registro.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  Get.put(AuthController());
-  AuthController authController = Get.find<AuthController>();
-  Get.put(PerfilController());
-  await authController.signInWithGoogle();
-  PerfilController perfilController = Get.find<PerfilController>();
-  perfilController.uid = FirebaseAuth.instance.currentUser?.uid;
-  perfilController.perfiles =
-      await perfilController.obtenerPerfilesDesdeFirestore();
+  try {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    Get.put(AuthController());
+    AuthController authController = Get.find<AuthController>();
+    Get.put(PerfilController());
+    await authController.signInWithGoogle();
+    PerfilController perfilController = Get.find<PerfilController>();
+    perfilController.uid = FirebaseAuth.instance.currentUser?.uid;
+    perfilController.perfiles =
+        await perfilController.obtenerPerfilesDesdeFirestore();
 
-  runApp(const MyApp());
+    runApp(const MyApp());
+  } catch (e) {
+    runApp(ErrorPage(errorMessage: e.toString()));
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -70,6 +74,34 @@ class MyApp extends StatelessWidget {
                 path: '/addvacuna',
                 builder: (context, state) => const AddVacuna()),
           ],
+        ));
+  }
+}
+
+class ErrorPage extends StatelessWidget {
+  const ErrorPage({super.key, required this.errorMessage});
+  final String errorMessage;
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Error',
+        home: Scaffold(
+          backgroundColor: Colors.deepPurpleAccent,
+          body: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Center(
+              child: Text(
+                'Error: $errorMessage',
+                style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+            ),
+          ),
         ));
   }
 }

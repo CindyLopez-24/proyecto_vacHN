@@ -275,7 +275,7 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
                               children: [
                                 Text(
                                     'Fecha: ${vacuna['grupo'][0].values.first['fecha']}'),
-                                Text('Fecha: ${vacuna['grupo'][0].keys.first}'),
+                                Text('Grupo: ${vacuna['grupo'][0].keys.first}'),
                               ],
                             ),
                             onTap: () {},
