@@ -162,6 +162,9 @@ class _CreUpdPerfilState extends State<CreUpdPerfil> {
                       SizedBox(
                         width: 150,
                         child: ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all(
+                                  const Color.fromARGB(255, 83, 178, 247))),
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               if (extra_!["editar"]) {
@@ -220,6 +223,9 @@ class _CreUpdPerfilState extends State<CreUpdPerfil> {
                       SizedBox(
                         width: 150,
                         child: ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all(
+                                  const Color.fromARGB(255, 83, 178, 247))),
                           onPressed: () {
                             context.pop();
                           },

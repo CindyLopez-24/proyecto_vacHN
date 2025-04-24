@@ -1,4 +1,5 @@
 import 'package:app_vacunas/firebase_options.dart';
+import 'package:app_vacunas/homePage.dart';
 //import 'package:app_vacunas/login.dart';
 import 'package:app_vacunas/perfiles/addvacuna.dart';
 import 'package:app_vacunas/perfiles/creupdperfil.dart';
@@ -51,15 +52,23 @@ class MyApp extends StatelessWidget {
                     path: 'creupdperfil',
                     builder: (context, state) => const CreUpdPerfil()),
                 GoRoute(
-                    path: 'grafico',
-                    builder: (context, state) => const GraficoEsquemasVac()),
-                GoRoute(
                     path: 'addvacuna',
                     builder: (context, state) => const AddVacuna()),
+                GoRoute(
+                    path: 'homepage',
+                    builder: (context, state) => HomeMenu(
+                          currentPage: 1,
+                          changePage: (int index) {
+                            // Handle page change here
+                          },
+                        )),
               ],
             ),
             GoRoute(
                 path: '/LogOut', builder: (context, state) => const LogOut()),
+            GoRoute(
+                path: '/grafico',
+                builder: (context, state) => const GraficoEsquemasVac()),
           ],
         ));
   }

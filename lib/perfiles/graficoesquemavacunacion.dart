@@ -102,7 +102,7 @@ class _GraficoEsquemasVac extends State<GraficoEsquemasVac> {
                     getTooltipItem: (group, groupIndex, rod, rodIndex) {
                       return BarTooltipItem(
                         'Completado: ${rod.toY}\nPendiente: ${(rod.toY).toStringAsFixed(1)}',
-                        const TextStyle(color: Colors.white),
+                        const TextStyle(color: Colors.blue),
                       );
                     },
                   ),
@@ -113,6 +113,7 @@ class _GraficoEsquemasVac extends State<GraficoEsquemasVac> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color.fromARGB(255, 83, 178, 247),
         onPressed: () {
           context.pushReplacement('/perfilvacunas');
         },

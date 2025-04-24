@@ -193,7 +193,7 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
                 title: const Text('Cerrar Sesión'),
                 onTap: () {
                   authController.signOut();
-                  context.go('/LogOut');
+                  context.pushReplacement('/LogOut');
                 },
               ),
             ],
@@ -378,7 +378,7 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
                 ),
                 onPressed: () {
                   context.go(
-                    '/perfilvacunas/grafico',
+                    '/grafico',
                     extra: perfilController.selectedPerfil,
                   );
                 },
