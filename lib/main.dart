@@ -52,9 +52,6 @@ class MyApp extends StatelessWidget {
                     path: 'creupdperfil',
                     builder: (context, state) => const CreUpdPerfil()),
                 GoRoute(
-                    path: 'addvacuna',
-                    builder: (context, state) => const AddVacuna()),
-                GoRoute(
                     path: 'homepage',
                     builder: (context, state) => HomeMenu(
                           currentPage: 1,
@@ -69,6 +66,9 @@ class MyApp extends StatelessWidget {
             GoRoute(
                 path: '/grafico',
                 builder: (context, state) => const GraficoEsquemasVac()),
+            GoRoute(
+                path: '/addvacuna',
+                builder: (context, state) => const AddVacuna()),
           ],
         ));
   }

@@ -40,6 +40,12 @@ class _AddVacunaState extends State<AddVacuna> {
     return Scaffold(
       backgroundColor: Colors.blue[50],
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            context.pushReplacement('/perfilvacunas');
+          },
+        ),
         title: const Text('Agregar Vacuna'),
         backgroundColor: Colors.blue,
       ),
@@ -84,6 +90,7 @@ class _AddVacunaState extends State<AddVacuna> {
                                             .first),
                                         leading: const Icon(Icons.vaccines),
                                         onTap: () {
+                                          Navigator.of(context).pop();
                                           confirmacionDialog(
                                               context, indexgrupo, indexvacuna);
                                         },

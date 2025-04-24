@@ -276,58 +276,88 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
                           trailing: IconButton(
                             icon: const Icon(Icons.add),
                             onPressed: () {
-                              if (vacuna['grupo'][0]
-                                      .values
-                                      .first['pendientes'] ==
-                                  0) {
-                                showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return AlertDialog(
-                                      title: const Text("Vacuna Completada"),
-                                      content: const Text(
-                                          "Esta vacuna ya ha sido completada."),
-                                      actions: <Widget>[
-                                        TextButton(
-                                          child: const Text("OK"),
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                                return;
-                              } else {
-                                perfilController
-                                    .selectedPerfil!['vacunas'][index]['grupo']
-                                        [0]
-                                    .values
-                                    .first['completadas'] += 1;
-                                perfilController
-                                    .selectedPerfil!['vacunas'][index]['grupo']
-                                        [0]
-                                    .values
-                                    .first['pendientes'] -= 1;
-                                perfilController.perfiles[perfilController
-                                        .perfiles
-                                        .indexWhere((p) =>
-                                            p['dni'] ==
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: const Text("Confirmación"),
+                                    content: const Text(
+                                        "¿Deseas registrar la aplicación de esta vacuna?"),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: const Text("Cancelar"),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                      TextButton(
+                                        child: const Text("Confirmar"),
+                                        onPressed: () {
+                                          Navigator.of(context)
+                                              .pop(); // Cierra el diálogo de confirmación
+
+                                          if (vacuna['grupo'][0]
+                                                  .values
+                                                  .first['pendientes'] ==
+                                              0) {
+                                            showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) {
+                                                return AlertDialog(
+                                                  title: const Text(
+                                                      "Vacuna Completada"),
+                                                  content: const Text(
+                                                      "Esta vacuna ya ha sido completada."),
+                                                  actions: <Widget>[
+                                                    TextButton(
+                                                      child: const Text("OK"),
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                    ),
+                                                  ],
+                                                );
+                                              },
+                                            );
+                                            return;
+                                          } else {
                                             perfilController
-                                                .selectedPerfil!['dni'])]
-                                    ['vacunas'][index]['grupo'][0];
-                                perfilController.selectedPerfil =
-                                    perfilController.perfiles[perfilController
-                                        .perfiles
-                                        .indexWhere((p) =>
-                                            p['dni'] ==
+                                                .selectedPerfil!['vacunas']
+                                                    [index]['grupo'][0]
+                                                .values
+                                                .first['completadas'] += 1;
                                             perfilController
-                                                .selectedPerfil!['dni'])];
-                                //guardarPerfilesEnFirebase(
-                                //    perfilController.perfiles!);
-                                setState(() {});
-                              }
+                                                .selectedPerfil!['vacunas']
+                                                    [index]['grupo'][0]
+                                                .values
+                                                .first['pendientes'] -= 1;
+                                            perfilController.perfiles[
+                                                    perfilController.perfiles
+                                                        .indexWhere((p) =>
+                                                            p['dni'] ==
+                                                            perfilController
+                                                                    .selectedPerfil![
+                                                                'dni'])]
+                                                ['vacunas'][index]['grupo'][0];
+                                            perfilController
+                                                .selectedPerfil = perfilController
+                                                    .perfiles[
+                                                perfilController.perfiles
+                                                    .indexWhere((p) =>
+                                                        p['dni'] ==
+                                                        perfilController
+                                                                .selectedPerfil![
+                                                            'dni'])];
+                                            //guardarPerfilesEnFirebase(perfilController.perfiles!);
+                                            setState(() {});
+                                          }
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
                             },
                           ),
                         ),
@@ -353,7 +383,7 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
                   style: TextStyle(color: Colors.black87),
                 ),
                 onPressed: () {
-                  context.go('/perfilvacunas/addvacuna', extra: {
+                  context.go('/addvacuna', extra: {
                     "perfil": perfilController.selectedPerfil!,
                     "editar": true
                   });
