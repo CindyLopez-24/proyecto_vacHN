@@ -406,10 +406,31 @@ class _PerfilVacunasState extends State<PerfilVacunas> {
                   style: TextStyle(color: Colors.black87),
                 ),
                 onPressed: () {
-                  context.go('/addvacuna', extra: {
-                    "perfil": perfilController.selectedPerfil!,
-                    "editar": true
-                  });
+                  if (perfilController.selectedPerfil!['dni'] == '00000000') {
+                    showDialog(
+                        context: context,
+                        builder: (_) {
+                          return AlertDialog(
+                            title: const Text("Edite el perfil inicial"),
+                            content: const Text(
+                                "No se puede agregar una vacuna sin un perfil válido."),
+                            actions: <Widget>[
+                              TextButton(
+                                child: const Text("OK"),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                            ],
+                          );
+                        });
+                  } else {
+                    context.go('/addvacuna', extra: {
+                      "tipo": "Adulto",
+                      "perfil": perfilController.selectedPerfil!,
+                      "editar": true,
+                    });
+                  }
                 },
               ),
             ),

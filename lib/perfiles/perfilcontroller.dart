@@ -8,11 +8,11 @@ class PerfilController extends GetxController {
   Map<String, dynamic>? selectedPerfil;
   String? uid;
 
-  Future<void> eliminarPerfilInicial() async {
+  Future<void> eliminarPerfil(String id) async {
     final FirebaseFirestore firestore = FirebaseFirestore.instance;
     final CollectionReference perfilesRef = firestore.collection(uid!);
 
-    await perfilesRef.doc('00000000').delete();
+    await perfilesRef.doc(id).delete();
   }
 
   Future<void> guardarPerfilesEnFirebase(
